@@ -8,6 +8,7 @@ import ru.netelogy.banklogin.data.SQLHelper;
 import ru.netelogy.banklogin.page.LoginPage;
 
 import static ru.netelogy.banklogin.data.SQLHelper.cleanDatabase;
+import static com.codeborne.selenide.Selenide.open;
 
 public class BankLoginTest {
     @AfterAll
