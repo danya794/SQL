@@ -22,6 +22,7 @@ public class SQLHelper {
         var codeSQL = "SELECT code FROM auths_codes ORDER BY created DESC LIMIT 1";
         try (var conn = getConn()) {
             var code = runner.query(conn, codeSQL, new ScalarHandler<String>());
+            return new DataHelper.VerificationCode(code);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
@@ -32,7 +33,7 @@ public class SQLHelper {
     public static void cleanDatabase() {
         var connection = getConn();
         runner.execute(connection, "DELETE FROM auth_codes");
-        runner.execute(connection, "DELETE FROM card_transaction");
+        runner.execute(connection, "DELETE FROM card_transactions");
         runner.execute(connection, "DELETE FROM cards");
         runner.execute(connection, "DELETE FROM users");
     }

@@ -48,9 +48,10 @@ public class DataHelper {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class AuthCode {
-        String id;
-        String number;
-        String balance;
+        private String id;
+        private String user_id;
+        private String code;
+        private String created;
     }
 
 }
