@@ -1,4 +1,4 @@
-package.ru.netelogy.banklogin.data;
+package ru.netelogy.banklogin.data;
 
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
@@ -10,9 +10,7 @@ import java.sql.SQLException;
 
 
 public class SQLHelper {
-    private static QueryRunner runner = new QueryRunner;
-}
-
+    private static QueryRunner runner = new QueryRunner();
     private SQLHelper() {
     }
 
@@ -21,7 +19,7 @@ public class SQLHelper {
     }
 
     public static DataHelper.VerificationCode getVerificationCode() {
-        var codeSQL = "SELECT code FROM auths_codes ORDER BY created DESC LIMIT 1"
+        var codeSQL = "SELECT code FROM auths_codes ORDER BY created DESC LIMIT 1";
         try (var conn = getConn()) {
             var code = runner.query(conn, codeSQL, new ScalarHandler<String>());
         } catch (SQLException exception) {

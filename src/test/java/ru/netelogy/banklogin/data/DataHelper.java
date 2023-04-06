@@ -5,14 +5,12 @@ import lombok.Value;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.Locale;
 
 public class DataHelper {
     private static Faker faker = new Faker(new Locale("en"));
 
     private DataHelper() {
-
     }
 
     public static AuthInfo getAuthInfoWithTestData() {
